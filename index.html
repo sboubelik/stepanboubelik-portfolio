@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Štěpánovo portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@300;400&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+      <ul id="navMenu">
+        <li><a href="#hero">Domů</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+      <button id="darkModeToggle">🌙</button>
+    </nav>
+
+    <main>
+      <section class="hero" id="hero">
+        <h1>Štěpán Boubelík</h1>
+        <p>portfolio</p>
+        <button id="showContentBtn" class="btn">Zjistit víc</button>
+      </section>
+
+      <div class="dalsi-obsah-container">
+        <section class="dalsi-obsah" id="dalsiObsah">
+          <h2>
+            Když se ti povedlo dostat na tenhle text, tak očividně tlačítko
+            "Zjistit víc" funguje. 😂
+          </h2>
+          <p>
+            Vítej v mém portfoliu. Snažím se naučit programovat a tenhle web je
+            jen čistá zkouška, kde se budu učit přidávat své fotky, videa a
+            všechny zážitky z mého života. 😊
+          </p>
+        </section>
+
+        <section class="galerie-fotek">
+          <h2>Moje zážitky</h2>
+          <div class="galerie-container">
+            <img src="auckland city.jpg" alt="Pohled na Auckland" />
+            <img src="carpe ringa.jpg" alt="Pohled na pláž Carpe Ringa" />
+            <img src="hagy drop.jpg" alt="Fotka hágy drop" />
+            <img src="hoch.jpg" alt="fotka na Hochu" />
+            <img src="jasná s jankem.jpg" alt="Jasná s Jankem" />
+            <img src="mount manganui.jpg" alt="pláž Mount Maunganui" />
+            <img src="surf s martinem.jpg" alt="surfování s Martinem" />
+          </div>
+        </section>
+
+        <section class="galerie-fotek video-galerie">
+          <h2>Moje videa</h2>
+          <div class="galerie-container">
+            <video controls>
+              <source src="snb edit.MP4" type="video/mp4" />
+              Tvůj prohlížeč nepodporuje HTML5 video.
+            </video>
+            <video controls>
+              <source src="zugspitze.MP4" type="video/mp4" />
+              Tvůj prohlížeč nepodporuje HTML5 video.
+            </video>
+            <video controls>
+              <source src="lomnice.MP4" type="video/mp4" />
+              Tvůj prohlížeč nepodporuje HTML5 video.
+            </video>
+          </div>
+        </section>
+      </div>
+
+      <section class="kontakt" id="kontakt">
+        <h2>Kontakt</h2>
+        <p>Můžete mě kontaktovat na: +420 723 277 461</p>
+        <ul>
+          <li>E-mail: stepanboubelik@seznam.cz</li>
+          <li>
+            <a
+              href="https://www.instagram.com/stepan_boubelik/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                alt="Instagram"
+                style="width: 24px; height: 24px"
+              />
+              Instagram
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
