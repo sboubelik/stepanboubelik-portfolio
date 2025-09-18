@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Štěpánovo portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@300;400&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+      <ul id="navMenu">
+        <li><a href="#hero">Domů</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+      <button id="darkModeToggle">🌙</button>
+    </nav>
+
+    <main>
+      <section class="hero" id="hero">
+        <h1>Štěpán Boubelík</h1>
+        <p>portfolio</p>
+      </section>
+
+      <div class="dalsi-obsah-container">
+        <section class="dalsi-obsah" id="dalsiObsah">
+          <h2>
+            Vítej v mém portfoliu. Snažím se naučit programovat a tenhle web je
+            jen čistá zkouška, kde se budu učit přidávat své fotky, videa a
+            všechny zážitky z mého života. 😊
+          </h2>
+        </section>
+
+        <section class="galerie-fotek">
+          <h2>Moje zážitky</h2>
+          <div class="galerie-container">
+            <a
+              href="auckland city.jpg"
+              data-gallery="my-gallery"
+              data-glightbox="Pohled na Auckland"
+            >
+              <img src="auckland city.jpg" alt="Pohled na Auckland" />
+            </a>
+            <a
+              href="carpe ringa.jpg"
+              data-gallery="my-gallery"
+              data-glightbox="Pohled na pláž Carpe Ringa"
+            >
+              <img src="carpe ringa.jpg" alt="Pohled na pláž Carpe Ringa" />
+            </a>
+            <a
+              href="hagy drop.jpg"
+              data-gallery="my-gallery"
+              data-glightbox="Fotka hágy drop"
+            >
+              <img src="hagy drop.jpg" alt="Fotka hágy drop" />
+            </a>
+            <a
+              href="hoch.jpg"
+              data-gallery="my-gallery"
+              data-glightbox="fotka na Hochu"
+            >
+              <img src="hoch.jpg" alt="fotka na Hochu" />
+            </a>
+            <a
+              href="jasná s jankem.jpg"
+              data-gallery="my-gallery"
+              data-glightbox="Jasná s Jankem"
+            >
+              <img src="jasná s jankem.jpg" alt="Jasná s Jankem" />
+            </a>
+            <a
+              href="mount manganui.jpg"
+              data-gallery="my-gallery"
+              data-glightbox="pláž Mount Maunganui"
+            >
+              <img src="mount manganui.jpg" alt="pláž Mount Maunganui" />
+            </a>
+            <a
+              href="surf s martinem.jpg"
+              data-gallery="my-gallery"
+              data-glightbox="surfování s Martinem"
+            >
+              <img src="surf s martinem.jpg" alt="surfování s Martinem" />
+            </a>
+          </div>
+        </section>
+
+        <section class="galerie-fotek video-galerie">
+          <h2>Moje videa</h2>
+          <div class="galerie-container">
+            <a
+              href="snb edit.MP4"
+              data-gallery="my-gallery-video"
+              data-type="video"
+              data-glightbox="snb edit"
+            >
+              <video controls>
+                <source src="snb edit.MP4" type="video/mp4" />
+                Tvůj prohlížeč nepodporuje HTML5 video.
+              </video>
+            </a>
+            <a
+              href="zugspitze.MP4"
+              data-gallery="my-gallery-video"
+              data-type="video"
+              data-glightbox="zugspitze"
+            >
+              <video controls>
+                <source src="zugspitze.MP4" type="video/mp4" />
+                Tvůj prohlížeč nepodporuje HTML5 video.
+              </video>
+            </a>
+            <a
+              href="lomnice.MP4"
+              data-gallery="my-gallery-video"
+              data-type="video"
+              data-glightbox="lomnice"
+            >
+              <video controls>
+                <source src="lomnice.MP4" type="video/mp4" />
+                Tvůj prohlížeč nepodporuje HTML5 video.
+              </video>
+            </a>
+          </div>
+        </section>
+      </div>
+
+      <section class="kontakt" id="kontakt">
+        <h2>Kontakt</h2>
+        <p>Můžete mě kontaktovat na: +420 723 277 461</p>
+        <ul>
+          <li>E-mail: stepanboubelik@seznam.cz</li>
+          <li>
+            <a
+              href="https://www.instagram.com/stepan_boubelik/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                alt="Instagram"
+                style="width: 24px; height: 24px"
+              />
+              Instagram
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

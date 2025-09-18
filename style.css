@@ -1,0 +1,571 @@
+:root {
+  --primary-color: #007bff;
+  --accent-color: #00bcd4;
+  --text-color: #333;
+  --background-color-light: #f0f2f5;
+  --card-background-light: #ffffff;
+  --shadow-light: rgba(0, 0, 0, 0.08);
+
+  --dark-mode-bg: #111827;
+  --dark-mode-card-bg: #1f2937;
+  --dark-mode-text: #e0e0e0;
+  --dark-mode-shadow: rgba(0, 0, 0, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color-light);
+  background: radial-gradient(at top, var(--background-color-light), #e3e8f0);
+  background-attachment: fixed;
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  color: var(--dark-mode-text);
+  background-color: var(--dark-mode-bg);
+  background: radial-gradient(at top, var(--dark-mode-bg), #0f121b);
+  background-attachment: fixed;
+}
+
+/* Navigace */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: var(--card-background-light);
+  box-shadow: 0 4px 12px var(--shadow-light);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  backdrop-filter: blur(10px);
+}
+
+body.dark-mode nav {
+  background-color: rgba(22, 33, 62, 0.9);
+  box-shadow: 0 4px 12px var(--dark-mode-shadow);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 1.05rem;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode nav ul li a {
+  color: var(--dark-mode-text);
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background-color: var(--accent-color);
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+nav ul li a:hover {
+  color: var(--accent-color);
+}
+
+#darkModeToggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+body.dark-mode #darkModeToggle {
+  color: var(--dark-mode-text);
+}
+
+#darkModeToggle:hover {
+  transform: scale(1.1);
+  color: var(--accent-color);
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #007bff, #00c6d4);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  animation: heroFadeIn 1.5s ease-out;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' fill='hsla(0, 0%, 100%, 0.1)'/%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-size: cover;
+  opacity: 0.15;
+  animation: movePattern 30s linear infinite;
+  transform: scale(1.5) rotate(5deg);
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes movePattern {
+  0% {
+    transform: scale(1.5) rotate(5deg);
+  }
+  50% {
+    transform: scale(1.6) rotate(10deg);
+  }
+  100% {
+    transform: scale(1.5) rotate(5deg);
+  }
+}
+
+.hero h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 5em;
+  margin-bottom: 0.2em;
+  letter-spacing: 3px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+  animation: textSlideIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.hero p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 2.5em;
+  font-weight: 300;
+  opacity: 0;
+  animation: textSlideIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards 0.4s;
+  transform: translateY(20px);
+  margin-bottom: 2em;
+}
+
+@keyframes textSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dalsi-obsah-container {
+  padding: 3rem 5%;
+  max-width: 1200px;
+  margin: 4rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease-out, visibility 0.3s, transform 0.3s ease-out;
+}
+
+.dalsi-obsah-container.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dalsi-obsah,
+.kontakt {
+  background-color: var(--card-background-light);
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px var(--shadow-light);
+  transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+body.dark-mode .dalsi-obsah,
+body.dark-mode .kontakt {
+  background-color: var(--dark-mode-card-bg);
+  box-shadow: 0 6px 20px var(--dark-mode-shadow);
+}
+
+.dalsi-obsah h2,
+.kontakt h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.dalsi-obsah h2::after,
+.kontakt h2::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent-color);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.dalsi-obsah p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1em;
+  text-align: justify;
+}
+
+/* sekce kontakty */
+.kontakt {
+  text-align: center;
+}
+.kontakt ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+.kontakt ul li {
+  font-size: 1.1rem;
+}
+.kontakt ul li a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+.kontakt ul li a:hover {
+  color: #0097a7;
+  text-decoration: underline;
+}
+
+/* Stylování ikony a odkazu na Instagram */
+.kontakt ul li a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.kontakt ul li a img {
+  filter: var(--text-color-filter);
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #f8f9fa;
+  padding: 2.5rem 5%;
+  text-align: center;
+  margin-top: auto;
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+
+body.dark-mode footer {
+  background-color: #0e0e1a;
+}
+
+footer p {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+footer a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #00bcd4;
+  text-decoration: underline;
+}
+
+/* Styly pro galerii fotek */
+.galerie-fotek {
+  padding: 2.5rem;
+  border-radius: 15px;
+  background-color: var(--card-background-light);
+  box-shadow: 0 6px 20px var(--shadow-light);
+  transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+body.dark-mode .galerie-fotek {
+  background-color: var(--dark-mode-card-bg);
+  box-shadow: 0 6px 20px var(--dark-mode-shadow);
+}
+
+.galerie-fotek h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.galerie-fotek h2::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent-color);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.galerie-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.galerie-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Styly pro odkaz (<a>) v galerii */
+.galerie-container a {
+  display: block; /* Důležité pro responzivní chování */
+  text-decoration: none;
+}
+
+/* Nové styly pro fotky uvnitř galerie */
+.galerie-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efekt při najetí myši na odkaz - transformace se aplikuje jen na fotku */
+.galerie-container a:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ... stávající styly pro videa ... */
+
+.galerie-container video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit: contain;
+}
+
+.galerie-container a:hover video {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Větší velikost videí v galerii */
+.video-galerie .galerie-container {
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+/* Definitivní oprava pro video v režimu celé obrazovky */
+.galerie-container video:fullscreen {
+  object-fit: contain !important;
+  background-color: black !important;
+}
+
+/* Responsivní design */
+@media (max-width: 992px) {
+  .hero h1 {
+    font-size: 4em;
+  }
+  .hero p {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 3%;
+  }
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+  nav ul li a {
+    font-size: 1rem;
+    padding: 8px 0;
+    width: 100%;
+    text-align: center;
+  }
+  nav ul li a::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  #darkModeToggle {
+    align-self: flex-end;
+    margin-top: -30px;
+  }
+  .hero {
+    height: 80vh;
+  }
+  .hero h1 {
+    font-size: 3em;
+    letter-spacing: 2px;
+  }
+  .hero p {
+    font-size: 1.5em;
+  }
+  .dalsi-obsah-container {
+    padding: 2rem 3%;
+    gap: 2rem;
+  }
+  .dalsi-obsah,
+  .kontakt {
+    padding: 2rem;
+  }
+  .dalsi-obsah h2,
+  .kontakt h2 {
+    font-size: 2rem;
+  }
+  .dalsi-obsah p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2.2em;
+    letter-spacing: 1px;
+  }
+  .hero p {
+    font-size: 1.2em;
+  }
+  .dalsi-obsah h2,
+  .kontakt h2 {
+    font-size: 1.8rem;
+  }
+}
+
+#dalsiObsah {
+  scroll-margin-top: 80px;
+}
+/* HERO fix */
+.hero {
+  position: relative;
+  min-height: 100vh; /* místo height: 100vh */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #007bff, #00c6d4);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  animation: heroFadeIn 1.5s ease-out;
+}
+
+/* --- Hamburger menu --- */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+body.dark-mode .hamburger {
+  color: var(--dark-mode-text);
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+
+  nav ul.open {
+    display: flex;
+  }
+}
+
+/* --- Galerie videí --- */
+.video-galerie .galerie-container {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
